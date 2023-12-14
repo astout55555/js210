@@ -1,0 +1,1 @@
+This is the repository for course JS210, the first required front-end course at Launch School. I'm using it to record and store some notes and practice problems, anything that takes more than a few minutes to solve using node or a reusable test file (for very minor problems I just solve them and erase rather than create a separate file).
