@@ -5,41 +5,48 @@ const LOWERCASE_z_CODE = 122;
 
 function isCapitalLetter(character) {
   let characterCode = character.charCodeAt();
-  if (characterCode >= CAPITAL_A_CODE && characterCode <= CAPITAL_Z_CODE) {
-    return true;
-  } else {
-    return false;
-  }
+  return (characterCode >= CAPITAL_A_CODE && characterCode <= CAPITAL_Z_CODE)
 }
 
 function isLowerCaseLetter(character) {
   let characterCode = character.charCodeAt();
-  if (characterCode >= LOWERCASE_a_CODE && characterCode <= LOWERCASE_z_CODE) {
-    return true;
-  } else {
-    return false;
+  return (characterCode >= LOWERCASE_a_CODE && characterCode <= LOWERCASE_z_CODE)
+}
+
+function rotateCapitalCode(charCode, rotAmount) {
+  charCode += rotAmount;
+
+  if (charCode > CAPITAL_Z_CODE) {
+    let overage = charCode - CAPITAL_Z_CODE;
+    charCode = CAPITAL_A_CODE - 1 + overage;
   }
+
+  return charCode;
+}
+
+function rotateLowerCaseCode(charCode, rotAmount) {
+  charCode += rotAmount;
+
+  if (charCode > LOWERCASE_z_CODE) {
+    let overage = charCode - LOWERCASE_z_CODE;
+    charCode = LOWERCASE_a_CODE - 1 + overage;
+  }
+
+  return charCode;
 }
 
 function rot13(string) {
   let rotatedString = '';
+  const ROTATION_AMOUNT = 13;
 
   for (let index = 0; index < string.length; index++) {
     let character = string[index];
     let charCode = character.charCodeAt();
 
     if (isCapitalLetter(character)) {
-      charCode += 13;
-      if (charCode > CAPITAL_Z_CODE) {
-        let overage = charCode - CAPITAL_Z_CODE;
-        charCode = CAPITAL_A_CODE - 1 + overage;
-      }
+      charCode = rotateCapitalCode(charCode, ROTATION_AMOUNT);
     } else if (isLowerCaseLetter(character)) {
-      charCode += 13;
-      if (charCode > LOWERCASE_z_CODE) {
-        let overage = charCode - LOWERCASE_z_CODE;
-        charCode = LOWERCASE_a_CODE - 1 + overage;
-      }
+      charCode = rotateLowerCaseCode(charCode, ROTATION_AMOUNT);
     }
 
     character = String.fromCharCode(charCode);
