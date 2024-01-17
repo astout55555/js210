@@ -7,3 +7,6 @@ package.json
 package-lock.json
 node_modules/
 .notes.md
+.eslintrc.yml
+.exam_questions/
+.quizzes/

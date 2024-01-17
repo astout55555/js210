@@ -1,16 +1,16 @@
 const CAPITAL_A_CODE = 65;
 const CAPITAL_Z_CODE = 90;
-const LOWERCASE_a_CODE = 97;
-const LOWERCASE_z_CODE = 122;
+const LOWERCASE_A_CODE = 97;
+const LOWERCASE_Z_CODE = 122;
 
 function isCapitalLetter(character) {
-  let characterCode = character.charCodeAt();
-  return (characterCode >= CAPITAL_A_CODE && characterCode <= CAPITAL_Z_CODE)
+  let charCode = character.charCodeAt();
+  return (charCode >= CAPITAL_A_CODE && charCode <= CAPITAL_Z_CODE);
 }
 
 function isLowerCaseLetter(character) {
-  let characterCode = character.charCodeAt();
-  return (characterCode >= LOWERCASE_a_CODE && characterCode <= LOWERCASE_z_CODE)
+  let charCode = character.charCodeAt();
+  return (charCode >= LOWERCASE_A_CODE && charCode <= LOWERCASE_Z_CODE);
 }
 
 function rotateCapitalCode(charCode, rotAmount) {
@@ -27,9 +27,9 @@ function rotateCapitalCode(charCode, rotAmount) {
 function rotateLowerCaseCode(charCode, rotAmount) {
   charCode += rotAmount;
 
-  if (charCode > LOWERCASE_z_CODE) {
-    let overage = charCode - LOWERCASE_z_CODE;
-    charCode = LOWERCASE_a_CODE - 1 + overage;
+  if (charCode > LOWERCASE_Z_CODE) {
+    let overage = charCode - LOWERCASE_Z_CODE;
+    charCode = LOWERCASE_A_CODE - 1 + overage;
   }
 
   return charCode;
